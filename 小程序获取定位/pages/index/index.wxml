@@ -1,0 +1,68 @@
+<!-- index.wxml -->
+  <map id="map"
+   longitude="{{longitude}}"
+    latitude="{{latitude}}"
+     scale="{{scale}}"
+      controls="{{controls}}"
+       bindcontroltap="controltap" 
+       markers="{{markers}}"
+        circles="{{circles}}"
+         bindmarkertap="markertap"
+          polyline="{{polyline}}" 
+  bindregionchange="regionchange"
+   show-location
+    style="width: 100%; height: {{view.Height}}px;">
+    </map>
+<!-- 选择器 -->
+<view class="cu-form-group">
+		<view class="title">时间选择</view>
+		<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="TimeChange">
+			<view class="picker">
+			  {{time}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">日期选择</view>
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+  </view>
+<!-- 输入id -->
+<view class="cu-form-group margin-top">
+		<view class="title">ID</view>
+		<input placeholder="员工ID" bindinput="getId"></input>
+    <view>距离：{{distance}}米</view>
+</view>
+<view class="cu-form-group margin-top">
+		<view class="title">经度</view>
+		<input placeholder="经度" bindinput="getLongitude" value="{{longitude}}"></input>
+</view>
+<view class="cu-form-group margin-top">
+		<view class="title">纬度</view>
+		<input placeholder="纬度" bindinput="getLatitude" value="{{latitude}}"></input>
+</view>
+<!-- 按钮 -->
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-grey lg" bindtap="sendMsg" disabled="{{can}}">发送</button>
+</view>
+
+
+
+
+<!-- 模态-->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">打卡情况</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{msg}}
+    </view>
+  </view>
+</view>

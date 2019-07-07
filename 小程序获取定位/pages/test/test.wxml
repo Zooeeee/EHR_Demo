@@ -1,0 +1,11 @@
+<!--pages/test/test.wxml-->
+<button bindtap="GPSsubmit" type="primary">获取地理位置</button>
+<view>维度：{{latitude}}</view>
+<view>经度：{{longitude}}</view>
+<view>你当前所在:{{location}}</view>
+
+<view>============================</view>
+<view > 纬度：<input   bindinput="getLatitude" /> </view> 
+<view >经度：<input  bindinput="getLongitude" /> </view>  
+<button bindtap="calculateDistance" type="primary">计算直线距离（默认北京）</button>
+<view >{{distance}}米</view>
